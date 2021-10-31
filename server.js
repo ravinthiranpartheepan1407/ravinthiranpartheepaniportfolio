@@ -15,6 +15,10 @@ app.get("/vrapp", function(req, res){
   res.render('vrapp');
 })
 
+app.get("/ethapp", function(req, res){
+  res.render('ethapp');
+})
+
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is connected at port 3000");
 })
