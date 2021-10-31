@@ -15,6 +15,25 @@ app.get("/vrapp", function(req, res){
   res.render('vrapp');
 })
 
+app.get("/home", function(req, res){
+  res.render('home');
+})
+
+app.get("/shop", function(req, res){
+  res.render('shop');
+})
+
+app.get("/contact", function(req, res){
+  res.render('contact');
+})
+
+app.get("/works", function(req, res){
+  res.render('works');
+})
+
+
+
+
 app.get("/ethapp", function(req, res){
   res.render('ethapp');
 })
