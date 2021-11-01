@@ -1,42 +1,359 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+  <link href="/assets/vendor/aoss/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstraps/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-iconss/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxiconss/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swipers/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <link href="/assets/css/styles.css" rel="stylesheet">
 </head>
 
-<body>
-  <div>
-    <button class="pay-button " onclick="javascript:buycoin()">Pay</button>
-    <button id="connectButton" onclick="javascript:connect()">Connect to MetaMask</button>
-    <div id="status"></div>
-  </div>
-  <script type="text/javascript">
-    async function connect() {
-      const accounts = await ethereum.request({
-        method: 'eth_requestAccounts'
-      });
-      const account = accounts[0];
-    }
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex justify-content-between align-items-center">
 
-    async function buycoin() {
-      const accounts = await ethereum.request({
-        method: 'eth_requestAccounts'
-      });
-      const account = accounts[0];
-      const transactionParameters = {
-        from: ethereum.selectedAddress, // must match user's active address.
-        to: '0xC6cF539A4d446573B3eC2F1be4eDF1066c726BBA' // Required except during contract publications.
-        // amount: '0xfe'; - add if you want to
-      };
-      alert(ethereum.selectedAddress + " " + transactionParameters.to);
-      txHash = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [transactionParameters]
-      });
+    <div class="logo">
+      <h1><a href="/home">Ravinthiran Partheepan</a></h1>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="active " href="/home">Home</a></li>
+        <li><a href="/ethapp">Ethereum Shop</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/works">Works</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li class="dropdown"><a href="/works"><span>Github</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="/">Full Stack Web Development</a></li>
+            <li><a href="/">AI & Machine Learning</a></li>
+            <li><a href="#">Blockchain Development</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+  </div>
+</header>
+
+<style>
+  img{
+    pointer-events: none;
+}
+</style>
+
+<body oncontextmenu="return false;">
+  <section class="hero-section inner-page">
+    <div class="wave">
+
+      <svg width="1920px" height="265px" viewBox="0 0 1920 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
+            <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z" id="Path"></path>
+          </g>
+        </g>
+      </svg>
+
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-md-7 text-center hero-text">
+              <h1 data-aos="fade-up" data-aos-delay="">Ethereum Comics Shop</h1>
+              <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Welcome To My Ethereum NFT Shop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+
+      <div class="row justify-content-center text-center">
+        <div class="col-md-7 mb-5">
+          <h2 class="section-heading">Ethereum Dapps</h2>
+          <p>Would you like to buy my comic arts using Ethereum coins? Then check out the categories below</p>
+        </div>
+      </div>
+      <div class="row align-items-stretch">
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="pricing h-100 text-center">
+            <span>&nbsp;</span>
+            <img style="width: 200px; height: 200px; border-radius: 2.50rem;" src="/images/RosieComic.jpg" alt="">
+            <h3>Rosie</h3>
+            <ul class="list-unstyled">
+              <li>Comics</li>
+              <li>Type: Color</li>
+            </ul>
+            <div class="price-cta">
+              <strong class="price">0.50 - ETH</strong>
+              <button class="pay-buttons btn btn-primary">Buy</button>
+              <div id="status"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="pricing h-100 text-center popular">
+            <img style="width: 200px; height: 200px; border-radius: 2.50rem;" src="/images/RosieComic2.png" alt="">
+            <h3>Rosie Version 2</h3>
+            <ul class="list-unstyled">
+              <li>Comics</li>
+              <li>Type: Color</li>
+            </ul>
+            <div class="price-cta">
+              <strong class="price">1 ETH</strong>
+              <button class="pay-button btn btn-primary">Buy</button>
+              <div id="status"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="pricing h-100 text-center">
+            <img style="width: 200px; height: 200px; border-radius: 2.50rem;" src="/images/RosieComic3.jpg" alt="">
+            <h3>Rosie Version 3</h3>
+            <ul class="list-unstyled">
+              <li>Comics</li>
+              <li>Type: Color</li>
+            </ul>
+            <div class="price-cta">
+              <strong class="price">0.70 - ETH</strong>
+              <button class="pays-button btn btn-primary">Buy</button>
+              <div id="status"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style=" background: linear-gradient(to right, #100028 5%, rgba(61, 179, 197, 0.8) 150%);" class="section cta-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
+          <h2>Install Metamask to make the payment</h2>
+        </div>
+        <div class="col-md-5 text-center text-md-end">
+          <p><a href="https://metamask.io/download" class="btn d-inline-flex align-items-center"><i class="bx bxl-windows"></i><span>Download (64 bit)</span></a> <a href="https://metamask.io/download" class="btn d-inline-flex align-items-center"><i class="bx bxl-apple"></i><span>Download (64 bit)</span></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h3>About Ravinthiran Partheepan</h3>
+          <p style="text-align: justify !important;">I am an Artificial Intelligence Researcher, Blockhain ETH Smartcontracts And Dapps Developer, Full Stack Developer, Comic Book Writer and VFX Film Maker</p>
+          <p class="social">
+            <a href="mailto:ravinthiran1407@gmail.com?subject=feedback"><span class="bi bi-email"></span></a>
+            <a href="/"><span class="bi bi-web"></span></a>
+            <a href="#"><span class="bi bi-instagram"></span></a>
+            <a href="https://www.linkedin.com/in/ravinthiran-partheepan-8a5100131"><span class="bi bi-linkedin"></span></a>
+          </p>
+        </div>
+        <div class="col-md-7 ms-auto">
+          <div class="row site-section pt-0">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Navigation</h3>
+              <ul class="list-unstyled">
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/works">Works</a></li>
+                <li><a href="/home"></a>Home</li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Shop</h3>
+              <ul class="list-unstyled">
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/ethapp">Ethereum Dapp</a></li>
+                <li><a href="/home"></a>Home</li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Downloads</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Get from the Play Store</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+          <p class="copyright">&copy; Copyright Ravinthiran Partheepan. All Rights Reserved</p>
+          <div class="credits">
+
+            Developed by <a href="/">Ravinthiran Partheepan</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButton()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButton()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+    const initPayButton = () => {
+      $('.pay-buttons').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0xC6cF539A4d446573B3eC2F1be4eDF1066c726BBA'
+        const amountEth = 0.50
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
     }
   </script>
-</body>
 
+
+
+
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButtons()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButtons()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+    const initPayButtons = () => {
+      $('.pay-button').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0xC6cF539A4d446573B3eC2F1be4eDF1066c726BBA'
+        const amountEth = 1
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
+    }
+  </script>
+
+
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButtonss()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButtonss()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+    const initPayButtonss = () => {
+      $('.pays-button').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0xC6cF539A4d446573B3eC2F1be4eDF1066c726BBA'
+        const amountEth = 0.70
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
+    }
+  </script>
+
+  <script>
+    (function($){
+      $(document).on('contextmenu', 'img', function() {
+          return false;
+      })
+    })(jQuery);
+  </script>
+
+  <script src="/assets/vendor/aoss/aos.js"></script>
+  <script src="/assets/vendor/bootstraps/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/swipers/swiper-bundle.min.js"></script>
+
+
+  <script src="/assets/js/mains.js"></script>
+</body>
 </html>
