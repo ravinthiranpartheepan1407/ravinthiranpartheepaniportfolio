@@ -31,6 +31,9 @@ app.get("/works", function(req, res){
   res.render('works');
 })
 
+app.get("/arapp", function(req, res){
+  res.render('arapp');
+})
 
 
 
