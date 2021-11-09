@@ -35,6 +35,10 @@ app.get("/arapp", function(req, res){
   res.render('arapp');
 })
 
+app.get("/login", function(req, res){
+  res.render('login');
+})
+
 
 
 app.get("/ethapp", function(req, res){
