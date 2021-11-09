@@ -7,6 +7,7 @@ ids = crypto.randomBytes(16).toString('hex');;
 idss = crypto.randomBytes(20).toString('hex');;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+const stripe = require('stripe')('sk_test_51JtyaLG9HYj0Jnl6ws0mAi5WXj2f3pnEc5BpKkoKPr8lvQt474kaZSxkwBbcq5yg768vwZtpL02k1sdFiqGCtly500DMNvw32a')
 
 app.set("view engine", "ejs");
 
@@ -82,6 +83,10 @@ app.post('/contact', function(req, res) {
 app.get("/ethapp", function(req, res){
   res.render('ethapp');
 })
+
+app.get("/downloadRosie/:ids", function(req, res){
+    res.download(__dirname + "/public/assets/uploads/Rosie.pdf");
+});
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is connected at port 3000");
