@@ -179,7 +179,7 @@ const resetIds = crypto.randomBytes(16).toString('base64');
             res.render('list', { listTitle: 'Today', newListItems: foundItems });
           }
         });
-      
+
       } else {
         res.sendFile(__dirname + '/public/login.html');
       }
@@ -296,7 +296,7 @@ app.post("/register", function(req, res){
             newUser.password = hash;
             newUser
               .save()
-              .then(res.render('/login'))
+              .then(res.sendFile(__dirname + '/public/login.html'))
               .catch(err => console.log(err));
           });
         });
