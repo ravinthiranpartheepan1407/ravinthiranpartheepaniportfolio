@@ -12,11 +12,12 @@ const loadAsh = require("lodash");
 const mongoose = require('mongoose');
 const session = require('express-session');
 const fetch = require("isomorphic-fetch");
+const bcrypt = require('bcrypt');
 const date = require(__dirname + "/date.js");
 
 
-app.set("view engine", "ejs");
 
+app.set("view engine", "ejs");
 
 mongoose.connect('mongodb+srv://root:root@cluster0.vqs2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useUnifiedTopology: true,
@@ -140,7 +141,7 @@ app.get("/arapp", function(req, res){
 })
 
 app.get("/login", function(req, res){
-  res.render('login');
+  res.sendFile(__dirname + '/public/login.html');
 })
 
 app.post("/login", function(req, res){
@@ -152,7 +153,7 @@ const resetIds = crypto.randomBytes(16).toString('base64');
     email: req.body.emails
   }, function(err, user) {
     if (!user) {
-      res.render('/login');
+      res.render('/register');
     }
     bcrypt.compare(password, user.password, (err, data) => {
 
@@ -160,9 +161,27 @@ const resetIds = crypto.randomBytes(16).toString('base64');
         // res.render('home', {
         //   id: resetIds
         // });
-        res.render('/list?id='+rand);
+        Item.find({}, function(err, foundItems) {
+          console.log(foundItems);
+
+          if (foundItems.length === 0) {
+            Item.insertMany(defaultItems, function(err) {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log('Successfully saved default items to DB');
+              }
+            });
+
+            res.redirect('/list');
+          } else {
+
+            res.render('list', { listTitle: 'Today', newListItems: foundItems });
+          }
+        });
+      
       } else {
-        res.render('/login');
+        res.sendFile(__dirname + '/public/login.html');
       }
 
     });
@@ -236,11 +255,11 @@ app.post("/register", function(req, res){
 
       if (google_response.success == true) {
 
-         res.render('/login');
+         res.sendFile(__dirname + '/public/login.html');
       } else {
 
 
-           res.render('/login');
+           res.sendFile(__dirname + '/public/login.html');
 
       }
     })
