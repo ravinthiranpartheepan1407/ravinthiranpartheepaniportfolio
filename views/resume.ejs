@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ravinthiran Partheepan - Resume Builder</title>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ravinthiran Partheepan - Resume Builder">
+    <meta name="author" content="Ravinthiran Partheepan">
+    <link rel="shortcut icon" href="/images/icon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <link id="theme-style" rel="stylesheet" href="/assets/css/orbit-1.css">
+</head>
+
+<body>
+    <div class="wrapper mt-lg-5">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile" src="assets/images/profile.png" alt="" />
+                <h1 class="name"><%= names %></h1>
+                <h3 class="tagline">Full Stack Developer</h3>
+            </div>
+
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fas fa-envelope"></i><%= emails %></a></li>
+                    <li class="website"><i class="fas fa-globe"></i></a><%= websites %></li>
+                    <li class="linkedin"><i class="fab fa-linkedin-in"></i><%= linkedins %></li>
+                    <li class="github"><i class="fab fa-github"></i><%= githubs %></li>
+                </ul>
+            </div>
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item">
+                    <h4 class="degree">MSc in Computer Science</h4>
+                    <h5 class="meta">University of London</h5>
+	                    <div class="time">2016 - 2018</div>
+                </div>
+                <div class="item">
+                    <h4 class="degree">BSc in Applied Mathematics</h4>
+                    <h5 class="meta">Bristol University</h5>
+                    <div class="time">2012 - 2016</div>
+                </div>
+            </div>
+
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>English <span class="lang-desc">(Native)</span></li>
+                    <li>French <span class="lang-desc">(Professional)</span></li>
+                    <li>Spanish <span class="lang-desc">(Professional)</span></li>
+                </ul>
+            </div>
+
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>Climbing</li>
+                    <li>Snowboarding</li>
+                    <li>Cooking</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="main-wrapper">
+
+            <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+                <div class="summary">
+                    <p><%= careerprofiles %></p>
+                </div>
+            </section>
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experiences</h2>
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title"><%= jobpositions %></h3>
+                            <div class="time"><%= durations %></div>
+                        </div>
+                        <div class="company"><%= companys %></div>
+                    </div>
+                    <div class="details">
+                        <p><%= roledescriptions %></p>
+                    </div>
+                </div>
+
+
+
+
+            </section>
+
+            <section class="section projects-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Projects</h2>
+                <div class="intro">
+                    <p></p>
+                </div>
+                <div class="item">
+                    <span class="project-title"><%= projecttitles %></span> - <span class="project-tagline"><%= projectoverviews %></span>
+
+                </div>
+
+            </section>
+
+            <section class="skills-section section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-rocket"></i></span>Skills &amp; Proficiency</h2>
+                <div class="skillset">
+                    <div class="item">
+                        <h3 class="level-title"><%= skills %></h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                    <div class="item">
+                        <h3 class="level-title"><%= skillss %></h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                    <div class="item">
+                        <h3 class="level-title"><%= skillsss %></h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                    <div class="item">
+                        <h3 class="level-title"><%= skillssss %></h3>
+                        <div class="progress level-bar">
+							    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                    <div class="item">
+                        <h3 class="level-title"><%= skillsssss %></h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                    <div class="item">
+                        <h3 class="level-title"><%= skillssssss %></h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="text-center">
+            <small class="copyright">Developed with <i class="fas fa-heart"></i> by <a href="http://ravinthiranpartheepan.com" target="_blank">Ravinthiran Partheepan</a> for developers</small>
+            <small class="copyright">This resume intended for <i class="fas fa-heart"></i> by <a href="<%= websites %>" target="_blank"><%= names %></a></small>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -230,6 +230,42 @@ app.get("/ethapp", function(req, res){
 })
 
 
+app.get("/resume", function(req, res){
+  res.render('resume');
+})
+
+app.get("/resumeform", function(req, res){
+  res.render('resumeform');
+})
+
+app.post("/resumeform", function(req, res){
+  const name = req.body.name;
+  const email = req.body.email;
+  const website = req.body.website;
+  const linkedin = req.body.linkedin;
+  const github = req.body.github;
+  const careerprofile = req.body.careerprofile;
+  const jobposition = req.body.jobposition;
+  const duration = req.body.duration;
+  const company = req.body.company;
+  const roledescription = req.body.roledescription;
+  const projectoverview = req.body.projectoverview;
+  const projecttitle = req.body.projecttitle;
+  const projectshortdescription = req.body.projectshortdescription;
+  const skill = req.body.skill
+  const skills = req.body.skills
+  const skillss = req.body.skillss
+  const skillsss = req.body.skillsss
+  const skillssss = req.body.skillssss
+  const skillsssss = req.body.skillsssss
+  res.render('resume', {names: name, emails: email, websites: website, linkedins: linkedin, githubs: github, careerprofiles: careerprofile, jobpositions: jobposition, durations: duration, companys: company, roledescriptions: roledescription, projectoverviews: projectoverview, projecttitles: projecttitle, projectshortdescriptions: projectshortdescription, skills: skill, skillss: skills, skillsss: skillss, skillssss: skillsss, skillsssss: skillssss, skillssssss: skillsssss});
+})
+
+
+
+
+
+
 app.get("/register", function(req, res){
   res.render('register');
 })
