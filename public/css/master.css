@@ -1,71 +1,113 @@
 .login-dark {
   height:1000px;
-  background:#475d62 url(../../assets/img/star-sky.jpg);
+  background:#475d62 url(../../images/snow.jpg);
   background-size:cover;
   position:relative;
 }
 
 .login-dark form {
-  max-width:320px;
-  width:90%;
-  background-color:#1e2833;
-  padding:40px;
-  border-radius:4px;
-  transform:translate(-50%, -50%);
-  position:absolute;
-  top:50%;
-  left:50%;
-  color:#fff;
-  box-shadow:3px 3px 4px rgba(0,0,0,0.2);
+max-width:500px;
+width:90%;
+background-color:#1e2833;
+padding:40px;
+border-radius:4px;
+transform:translate(-50%, -50%);
+position:absolute;
+top:50%;
+left:50%;
+color:#fff;
+box-shadow:3px 3px 4px rgba(0,0,0,0.2);
 }
 
 .login-dark .illustration {
-  text-align:center;
-  padding:15px 0 20px;
-  font-size:100px;
-  color:#2980ef;
+text-align:center;
+padding:15px 0 20px;
+font-size:100px;
+color:#2980ef;
 }
 
 .login-dark form .form-control {
-  background:none;
-  border:none;
-  border-bottom:1px solid #434a52;
-  border-radius:0;
-  box-shadow:none;
-  outline:none;
-  color:inherit;
+background:none;
+border:none;
+border-bottom:1px solid #434a52;
+border-radius:0;
+box-shadow:none;
+outline:none;
+color:inherit;
 }
 
 .login-dark form .btn-primary {
-  background:#214a80;
-  border:none;
-  border-radius:4px;
-  padding:11px;
-  box-shadow:none;
-  margin-top:26px;
-  text-shadow:none;
-  outline:none;
+background:#214a80;
+border:none;
+border-radius:4px;
+padding:11px;
+box-shadow:none;
+margin-top:26px;
+text-shadow:none;
+outline:none;
 }
 
 .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
-  background:#214a80;
-  outline:none;
+background:#214a80;
+outline:none;
 }
 
 .login-dark form .forgot {
-  display:block;
-  text-align:center;
-  font-size:12px;
-  color:#6f7a85;
-  opacity:0.9;
-  text-decoration:none;
+display:block;
+text-align:center;
+font-size:12px;
+color:#6f7a85;
+opacity:0.9;
+text-decoration:none;
 }
 
 .login-dark form .forgot:hover, .login-dark form .forgot:active {
-  opacity:1;
-  text-decoration:none;
+opacity:1;
+text-decoration:none;
 }
 
 .login-dark form .btn-primary:active {
-  transform:translateY(1px);
+transform:translateY(1px);
+}
+
+.g-recaptcha {
+    margin-left: 60px;
+    margin-top: 15px;
+}
+
+#message {
+display:none;
+background: white;
+color: #000;
+
+}
+
+#message p {
+padding: 10px 35px;
+font-size: 10px;
+margin:0;
+display:inline;
+float:left
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+color: green;
+}
+
+.valid:before {
+position: relative;
+left: -35px;
+content: '\2714';
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+color: red;
+}
+
+.invalid:before {
+position: relative;
+left: -35px;
+content: '\2716';
 }
