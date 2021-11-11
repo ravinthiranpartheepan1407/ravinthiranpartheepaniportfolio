@@ -26,6 +26,11 @@
 
   <link href="/assets/css/styles.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
+
 
 </head>
 
@@ -183,7 +188,8 @@
           <div class="col-md-4 me-auto">
             <h2 style="color: white;" class="mb-4">Blockchain</h2>
             <p style="text-align: justify;" class="mb-4">Ethereum Smartcontracts, VRS Property, Gas Property Calculation, Deployment, Infura, Wallet development and Smartcontracts deployment in ethereum network.</p>
-            <p><a href="https://buy.stripe.com/test_3cs3cPfmRcYm89iaEE" class="btn btn-primary">Download Available</a></p>
+            <p><button id="pay-buttons" class="btn btn-primary">Download Available</button></p>
+            <p style="text-align: justify;" class="mb-4" id="status"></p>
           </div>
           <div class="col-md-6" data-aos="fade-left">
             <img style="width: 500px; height: 700px;" src="/images/Blockchain.jpg" alt="Image" class="img-fluid">
@@ -294,6 +300,46 @@
 
 
   <script src="/assets/js/mains.js"></script>
+
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+          initPayButton()
+        } catch (err) {
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButton()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+    const initPayButton = () => {
+      $('#pay-buttons').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0xC6cF539A4d446573B3eC2F1be4eDF1066c726BBA'
+        const amountEth = 1.50
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if  (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
+    }
+  </script>
 
 </body>
 
