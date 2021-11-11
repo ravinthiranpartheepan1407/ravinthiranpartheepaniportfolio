@@ -456,6 +456,9 @@ app.post('/work', (req, res) => {
   res.redirect('/work');
 });
 
+app.get("/spaceapp", function(req, res){
+  res.render('spaceapp');
+})
 
 
 app.listen(process.env.PORT || 3000, function(){
