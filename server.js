@@ -468,6 +468,10 @@ app.get("/game", function(req, res){
   res.render('game');
 })
 
+app.get("/workfloweditor", function(req, res){
+  res.render('workfloweditor');
+})
+
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is connected at port 3000");
