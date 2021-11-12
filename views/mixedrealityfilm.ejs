@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="//cdn.dashjs.org/latest/dash.all.debug.js"></script>
+<script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script>
+
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+  </head>
+  <style>
+    .video-container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border: solid 1px white;
+}
+
+.canvas-container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    border: solid 1px black;
+}
+  </style>
+  <body>
+
+
+<div class="video-container">
+  <div>Ravinthiran Partheepan - Mixed Reality Film</div>
+  <video-js id="example-video" muted width=480 height=270 class="vjs-default-skin" controls>
+    <source
+       src="https://s3.amazonaws.com/_bc_dml/example-content/sintel_dash/sintel_vod.mpd"
+       type="application/dash+xml">
+  </video-js>
+  <div>Press Play and Scrub video to trigger render</div>
+<script>
+  var player = videojs('example-video');
+</script>
+</div>
+
+<div class="canvas-container">
+  <div>video-proxy</div>
+  <canvas id="video-proxy" width=480 height=270 ></canvas>
+</div>
+
+    <a-scene background="color: black">
+      <a-box position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="black" shadow></a-plane>
+      <a-video src="#example-video_html5_api" position="-3 3 -5" rotation="0 0 0" width="4.8" height="2.7"></a-video>
+      <!-- <a-text position="-5 4 -4" color="red" value="src: #example-video (other browsers)"></a-text> -->
+
+      <a-video src="#video-proxy" position="3 3 -5" rotation="0 0 0" width="4.8" height="2.7"></a-video>
+      <!-- <a-text position="3 4 -4" color="red" value="src: #video-proxy"></a-text> -->
+    </a-scene>
+
+
+    <script type="text/javascript">
+      var WIDTH = 480
+var HEIGHT = 270
+var vidEl = document.querySelector("#example-video_html5_api")
+var vidProxy = document.querySelector("#video-proxy")
+
+
+
+function step(timestamp) {
+   vidProxy.getContext('2d').drawImage(vidEl, 0, 0, WIDTH, HEIGHT)
+    window.requestAnimationFrame(step);
+}
+
+window.requestAnimationFrame(step);
+
+    </script>
+  </body>
+</html>
