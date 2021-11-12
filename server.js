@@ -468,6 +468,10 @@ app.get("/game", function(req, res){
   res.render('game');
 })
 
+app.get("/npm", function(req, res){
+  res.render('npm');
+})
+
 app.get("/workfloweditor", function(req, res){
   res.render('workfloweditor');
 })
