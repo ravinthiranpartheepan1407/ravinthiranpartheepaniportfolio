@@ -464,6 +464,10 @@ app.get("/piceditor", function(req, res){
   res.render('piceditor');
 })
 
+app.get("/game", function(req, res){
+  res.render('game');
+})
+
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is connected at port 3000");
