@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>Disney's Pluto Rocket Body Mapping</title>
+    <title>Ravinthiran Partheepan - Celestrak</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <link href="/assets/vendor/aoss/aos.css" rel="stylesheet">
@@ -56,8 +56,7 @@
               max: 12000000000 // meters
             }
           },
-          // force the popup to the docked position
-          // for each selected feature
+
           popup: {
             dockEnabled: true,
             dockOptions: {
@@ -94,14 +93,14 @@
 
             let track = new Graphic({
               geometry: {
-                type: "polyline", // autocasts as new Polyline()
+                type: "polyline",
                 paths: [trackFeatures]
               },
               symbol: {
-                type: "line-3d", // autocasts as new LineSymbol3D()
+                type: "line-3d",
                 symbolLayers: [
                   {
-                    type: "line", // autocasts as new LineSymbol3DLayer()
+                    type: "line",
                     material: {
                       color: [192, 192, 192, 0.5]
                     },
@@ -120,7 +119,7 @@
 
         map.addMany([satelliteLayer, satelliteTracks]);
 
-        // Parse the satellite TLE data
+
         const lines = data.split("\n");
         const count = (lines.length / 3).toFixed(0);
 
@@ -130,12 +129,7 @@
           let line2 = lines[i * 3 + 2];
           let time = Date.now();
 
-          /*************************************************
-           * Create attributes for the International
-           * designator and Norad identifier. See the
-           * doc for details.
-           * https://www.space-track.org/documentation#/tle
-           *************************************************/
+
 
           const designator = line1.substring(9, 16);
           const launchYear = designator.substring(0, 2);
@@ -150,12 +144,12 @@
 
           if (satelliteLoc !== null) {
             let template = {
-              // autocasts as new PopupTemplate()
+
               title: "{name}",
               content: "Launch number {number} of {year}",
               actions: [
                 {
-                  // Create a popup action to display the satellite track.
+
                   title: "Show Satellite Track",
                   id: "track",
                   className: "esri-icon-globe"
@@ -166,7 +160,7 @@
             let graphic = new Graphic({
               geometry: satelliteLoc,
               symbol: {
-                type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+                type: "picture-marker",
                 url: "https://developers.arcgis.com/javascript/latest/sample-code/satellites-3d/live/satellite.png",
                 width: 48,
                 height: 48
@@ -188,14 +182,7 @@
         }
 
         function getSatelliteLocation(date, line1, line2) {
-          /****************************************************
-           * satellite-js is a library that includes a set of
-           * functions to convert TLE to geographic locations
-           * We use this to get the geographic location of the
-           * satellites for the current date. For more details
-           * on satellite-js visib the github repo
-           * https://github.com/shashwatak/satellite-js
-           ****************************************************/
+
           const satrec = satellite.twoline2satrec(line1, line2);
           const position_and_velocity = satellite.propagate(
             satrec,
@@ -233,7 +220,7 @@
             longitude -= 2 * Math.PI;
           }
           return {
-            type: "point", // Autocasts as new Point()
+            type: "point", 
             x: rad2deg * longitude,
             y: rad2deg * latitude,
             z: height * 1000
