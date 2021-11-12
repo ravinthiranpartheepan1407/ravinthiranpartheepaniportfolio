@@ -10,7 +10,7 @@
     <link href="/assets/vendor/bootstrap-iconss/bootstrap-icons.css" rel="stylesheet">
     <link href="/assets/vendor/boxiconss/css/boxicons.min.css" rel="stylesheet">
     <link href="/assets/vendor/swipers/swiper-bundle.min.css" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="/images/icon.png" rel="icon">
     <link href="/images/icon.png" rel="apple-touch-icon">
 
@@ -325,6 +325,13 @@
 
     </div>
   </footer>
+  <script>
+    (function($){
+      $(document).on('contextmenu', 'body', function() {
+          return false;
+      })
+    })(jQuery);
+  </script>
 
 </body>
 

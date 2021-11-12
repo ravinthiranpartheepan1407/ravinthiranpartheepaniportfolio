@@ -15,6 +15,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <link href="assets/css/styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
 
         #drag-1, #drag-2 {
@@ -449,6 +450,14 @@
 
 
     <script src="assets/js/mains.js"></script>
+
+    <script>
+      (function($){
+        $(document).on('contextmenu', 'body', function() {
+            return false;
+        })
+      })(jQuery);
+    </script>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="/images/icon.png" rel="icon">
   <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -644,5 +644,13 @@
   <script src="/assets/js/main.js"></script>
   </form>
 </body>
+
+<script>
+  (function($){
+    $(document).on('contextmenu', 'body', function() {
+        return false;
+    })
+  })(jQuery);
+</script>
 
 </html>

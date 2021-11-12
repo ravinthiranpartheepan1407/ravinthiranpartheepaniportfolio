@@ -341,6 +341,14 @@
     }
   </script>
 
+  <script>
+    (function($){
+      $(document).on('contextmenu', 'body', function() {
+          return false;
+      })
+    })(jQuery);
+  </script>
+
 </body>
 
 </html>
