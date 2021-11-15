@@ -476,6 +476,10 @@ app.get("/mixedrealityfilm", function(req, res){
   res.render('mixedrealityfilm');
 })
 
+app.get("/scraper", function(req, res){
+  res.render('scraper');
+})
+
 
 app.get("/workfloweditor", function(req, res){
   res.render('workfloweditor');
