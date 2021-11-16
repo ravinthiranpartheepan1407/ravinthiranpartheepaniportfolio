@@ -7,7 +7,6 @@ ids = crypto.randomBytes(16).toString('hex');
 idss = crypto.randomBytes(20).toString('hex');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
-// const stripe = require('stripe')('sk_test_51JtyaLG9HYj0Jnl6ws0mAi5WXj2f3pnEc5BpKkoKPr8lvQt474kaZSxkwBbcq5yg768vwZtpL02k1sdFiqGCtly500DMNvw32a')
 const loadAsh = require("lodash");
 const mongoose = require('mongoose');
 const session = require('express-session');
