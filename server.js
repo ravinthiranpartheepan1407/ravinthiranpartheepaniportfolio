@@ -484,6 +484,9 @@ app.get("/workfloweditor", function(req, res){
   res.render('workfloweditor');
 })
 
+app.get("/npm/docs/stringvalidator", function(req, res){
+  res.render('stringvalidator');
+})
 
 
 
