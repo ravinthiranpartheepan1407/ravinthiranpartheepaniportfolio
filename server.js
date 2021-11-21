@@ -488,6 +488,10 @@ app.get("/npm/docs/stringvalidator", function(req, res){
   res.render('stringvalidator');
 })
 
+app.get("/eth/erc20", function(req, res){
+  res.render('erc20');
+})
+
 
 
 app.listen(process.env.PORT || 3000, function(){
