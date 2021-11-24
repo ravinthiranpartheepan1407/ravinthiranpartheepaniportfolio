@@ -492,6 +492,10 @@ app.get("/eth/erc20", function(req, res){
   res.render('erc20');
 })
 
+app.get("/db/azog", function(req, res){
+  res.sendFile(__dirname + '/public/firedb.html');
+})
+
 
 
 app.listen(process.env.PORT || 3000, function(){

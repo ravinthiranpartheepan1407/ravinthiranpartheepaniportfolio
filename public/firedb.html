@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ravinthiran Partheepan - Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link href="/images/icon.png" rel="icon">
+  <link href="/images/icon.png" rel="apple-touch-icon">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+  <link href="/assets/vendor/aoss/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstraps/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-iconss/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxiconss/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swipers/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <link href="/assets/css/styles.css" rel="stylesheet">
+
+	<!-- CSS -->
+
+	<!-- jQuery and JS bundle w/ Popper.js -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</head>
+
+<style>
+  footer{
+    background-color: white;
+  }
+  body{
+    background: linear-gradient(to right, #100028 50%, rgba(61, 179, 197, 0.8) 150%);
+  }
+  #form-container{
+    background-image: url("/images/snow.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    margin-top: 50px;
+  }
+</style>
+<header style="background: linear-gradient(to right, #100028 5%, rgba(61, 179, 197, 0.8) 150%);" id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1><a href="/">Ravinthiran Partheepan</a></h1>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="active " href="/home">Home</a></li>
+        <li><a href="/npm">My-NPM-Packages</a></li>
+        <li><a href="/ethapp">Ethereum Shop</a></li>
+        <li><a href="https://rarible.com/token/0xf6793da657495ffeff9ee6350824910abc21356c:89924258366811623875109034533533048737172702265033712914275818847697259986946?tab=details">NFT Shop</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/works">Works</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li class="dropdown"><a href="/works"><span>Github</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="https://github.com/ravinthiranpartheepan1407/VPS_mongodb">VPS - Full Stack Web</a></li>
+            <li><a href="https://github.com/ravinthiranpartheepan1407/Data-Science-Projects">AI & Machine Learning</a></li>
+            <li><a href="https://github.com/ravinthiranpartheepan1407/Full_Stack_Web_Development_Apps">Blockchain Development</a></li>
+
+
+          </ul>
+        </li>
+
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+  </div>
+</header>
+<body>
+
+	<div style="margin-top: 150px;" id="auth-container" class="d-none container text-center">
+		<h3 style="color: white;" id="auth-text" class="font-weight-bold text-center mb-5 mt-5"></h3>
+		<button id="sign-out-btn" class="btn btn-danger font-weight-bolder btn-lg m-3">Sign Out</button>
+		<button id="email-verify-btn" class="btn btn-primary font-weight-bolder btn-lg m-3">Verify Email</button>
+	</div>
+	<div id="form-container" class="vh-100 d-flex flex-column justify-content-center container-sm">
+		<h1 style="color: white;" id="heading" class="font-weight-bolder text-center mb-5">Sign Up</h1>
+		<div class="text-center">
+			<p style="color: white">Sign in with :</p>
+			<button id="google-auth" class="btn btn-primary">Google</button>
+		</div>
+		<form id="form-el" class="form-signin text-center">
+			<div style="max-width: 500px;" class="container-sm">
+				<div class="form-group m-4">
+					<input
+						class="form-control mw-"
+						type="email"
+						placeholder="Email"
+						name="email"
+						id="emailInput" />
+				</div>
+				<div class="form-group m-4">
+					<input
+						class="form-control"
+						type="password"
+						minlength="8"
+						value=""
+						placeholder="Password"
+						name="password"
+						id="passwordInput" />
+				</div>
+			</div>
+			<button style="color: white;" id="form-submit-btn" class="font-weight-bold btn btn-primary btn-lg">Sign Up</button><br />
+			<button  id="forgot-pass-btn" class="d-none btn btn-primary mt-3">Forgot password</button>
+		</form>
+		<p class="text-center mt-3">
+			<span style="color: black; font-weight: bolder;" id="switch-note">Already have an account ?</span>
+			<button style="color: black; font-weight: bolder;" aria-data="sign-in" id="swap-sign-in-up" class="btn btn-link">Sign In</button>
+		</p>
+	</div>
+	<div class="modal fade" id="error-modal" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 id="error-heading" class="modal-title"></h5>
+					<button class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div id="error-msg" class="modal-body"></div>
+				<div class="modal-footer">
+					<button class="btn btn-info" data-dismiss="modal">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  <script>
+    (function($){
+      $(document).on('contextmenu', 'body', function() {
+          return false;
+      })
+    })(jQuery);
+  </script>
+  <script src="/assets/vendor/aoss/aos.js"></script>
+  <script src="/assets/vendor/bootstraps/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/swipers/swiper-bundle.min.js"></script>
+
+
+  <script src="/assets/js/mains.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-functions.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script>
+
+	const firebaseConfig = {
+    apiKey: "AIzaSyBe2NHEHmR712Vq6tYrVojJdd3omlvWQ8Y",
+    authDomain: "azog-eb0a8.firebaseapp.com",
+    databaseURL: "https://azog-eb0a8-default-rtdb.firebaseio.com",
+    projectId: "azog-eb0a8",
+    storageBucket: "azog-eb0a8.appspot.com",
+    messagingSenderId: "1003993146871",
+    appId: "1:1003993146871:web:69ffe9d1748d408fd9faf2"
+	};
+	firebase.initializeApp(firebaseConfig);
+
+
+	const auth = firebase.auth();
+
+</script>
+<script>
+  auth.onAuthStateChanged(user => {
+  	if (user) {
+  		console.log(user)
+  		userLoggedIn(user)
+  	} else {
+  		console.log("No user is signed in.. Sign Up")
+  	}
+  })
+
+  const signUpUser = (email, pass) => {
+  	auth.createUserWithEmailAndPassword(email, pass)
+  	.then(res => {
+  		console.log(res)
+  	})
+  	.catch(err => {
+  		errorHandler(err)
+  	})
+  }
+
+  const signInUser = (email, pass) => {
+  	auth.signInWithEmailAndPassword(email, pass)
+  	.then(res => {
+
+  		console.log("Signed In")
+
+  	})
+  	.catch(err => {
+  		errorHandler(err)
+  	})
+  }
+
+  const signOutUser = () => {
+  	auth.signOut()
+  	.then(() => {
+  		console.log("You are signed out")
+  		userLoggedOut()
+  	})
+  	.catch(err => {
+  		console.log(err)
+  		errorHandler(err)
+  	})
+  }
+
+  const verifyEmail = () => {
+  	const user = auth.currentUser
+  	user.sendEmailVerification()
+  	.then(() => {
+  		errorHandler({message: "Email is sent.\nCheck your Mail's."}, true)
+  	})
+  	.catch(err => {
+  		errorHandler(err)
+  	})
+  }
+
+  const resetPassword = (email) => {
+  	auth.sendPasswordResetEmail(email)
+  	.then(() => {
+  		errorHandler({message: "Email is sent.\nCheck your Mail's."}, true)
+  	})
+  	.catch(err => {
+  		errorHandler(err)
+  	})
+  }
+
+</script>
+
+<script>
+  var provider = new firebase.auth.GoogleAuthProvider();
+  let user = null
+
+
+
+  const signInUserWithGoogle = () => {
+  	auth.signInWithPopup(provider).then(res => {
+  		console.log(res)
+
+  		user = res.user
+  	}).catch(err => {
+  		errorHandler(err)
+  	})
+
+  }
+
+</script>
+
+<script>
+  const form = $("#form-el")[0];
+  const swapSignInUpBtn = $("#swap-sign-in-up")[0];
+  const heading = $("#heading")[0];
+  const formSubmitBtn = $("#form-submit-btn")[0];
+  const switchNote = $("#switch-note")[0];
+  const authText = $("#auth-text")[0];
+  const formContainer = $('#form-container')[0];
+  const signOutBtn = $('#sign-out-btn')[0];
+  const errorModal = $('#error-modal');
+  const verifyEmailBtn = $('#email-verify-btn')[0];
+  const forgotPassBtn = $('#forgot-pass-btn')[0];
+  const googleAuthBtn = $('#google-auth')[0];
+
+  let submitAction = "sign-up", forceToSignIn = false
+
+  const switchSignInSignUp = (swapTo) => {
+  	if (swapTo === "sign-in") {
+  		heading.innerText = "Sign In";
+  		formSubmitBtn.innerText = "Sign In";
+  		swapSignInUpBtn.innerText = "Sign Up";
+  		switchNote.innerText = "Don't have an account ?";
+  		submitAction = "sign-in"
+  		forgotPassBtn.classList.remove('d-none')
+  		form['passwordInput'].classList.remove('d-none')
+  		forceToSignIn = false
+  		return "sign-up";
+  	} else {
+  		heading.innerText = "Sign Up";
+  		formSubmitBtn.innerText = "Sign Up";
+  		swapSignInUpBtn.innerText = "Sign In";
+  		switchNote.innerText = "Already have an account ?";
+  		submitAction = "sign-up"
+  		forgotPassBtn.classList.add('d-none')
+  		form['passwordInput'].classList.remove('d-none')
+  		forceToSignIn = false
+  		return "sign-in";
+  	}
+  }
+
+  const validateForm = (email, pass = {length: 8}) => {
+  	const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+  	return pattern.test(email) && pass.length >= 8
+  }
+
+  const updateUiForResetPass = () => {
+  	heading.innerText = "Reset Password";
+  	formSubmitBtn.innerText = "Reset";
+  	swapSignInUpBtn.innerText = "Sign In";
+  	switchNote.innerText = "Back to";
+  	submitAction = "reset-pass"
+  	forgotPassBtn.classList.add('d-none')
+  	form['passwordInput'].classList.add('d-none')
+  	forceToSignIn = true
+  }
+
+  swapSignInUpBtn.addEventListener("click", () => {
+  	let currentData = swapSignInUpBtn.attributes['aria-data'].value;
+  	currentData = switchSignInSignUp(forceToSignIn ? "sign-in" : currentData);
+  	swapSignInUpBtn.attributes['aria-data'].value = currentData;
+  })
+
+  form.addEventListener("submit", e => e.preventDefault())
+
+  formSubmitBtn.addEventListener("click", (e) => {
+  	const email = form['emailInput'].value
+  	const pass = form['passwordInput'].value
+  	if (submitAction === "sign-up") {
+  		if (validateForm(email, pass)) {
+  			signUpUser(email, pass)
+  		}
+  	} else if (submitAction === "sign-in") {
+  		if (validateForm(email, pass)) {
+  			signInUser(email, pass)
+  		}
+  	} else if (submitAction === "reset-pass") {
+  		if (validateForm(email)) {
+  			resetPassword(email)
+  		}
+  	}
+  })
+
+  signOutBtn.addEventListener("click", () => {
+  	signOutUser();
+  })
+
+  verifyEmailBtn.addEventListener("click", () => {
+  	verifyEmail()
+  })
+
+  forgotPassBtn.addEventListener("click", () => {
+  	updateUiForResetPass();
+  })
+
+  googleAuthBtn.addEventListener("click", () => {
+  	signInUserWithGoogle();
+  })
+
+</script>
+
+<script>
+  const userLoggedIn = (user) => {
+  	formContainer.remove()
+  	$('#auth-container').removeClass('d-none')
+  	authText.innerText = `You are Logged In as ${user.email}\nVerified: ${user.emailVerified}`
+  	if (user.emailVerified) {
+  		verifyEmailBtn.classList.add('d-none')
+  	} else {
+  		verifyEmailBtn.classList.remove('d-none')
+  	}
+  }
+
+  const userLoggedOut = () => {
+  	$('body')[0].append(formContainer)
+  	$('#auth-container')[0].classList.add('d-none')
+  }
+
+  const errorHandler = (err, isInfo = false) => {
+  	if (isInfo) {
+  		$('#error-heading')[0].innerText = "Info"
+  	} else {
+  		$('#error-heading')[0].innerText = "Error"
+  	}
+  	$('#error-msg')[0].innerText = err.message
+  	errorModal.modal('show')
+  }
+
+</script>
+
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h3>About Ravinthiran Partheepan</h3>
+        <p style="text-align: justify !important;">I am an Artificial Intelligence Researcher, Blockhain ETH Smartcontracts And Dapps Developer, Full Stack Developer, Comic Book Writer and VFX Film Maker</p>
+        <p class="social">
+          <a href="#"><span class="bi bi-twitter"></span></a>
+          <a href="#"><span class="bi bi-facebook"></span></a>
+          <a href="#"><span class="bi bi-instagram"></span></a>
+          <a href="https://www.linkedin.com/in/ravinthiran-partheepan-8a5100131"><span class="bi bi-linkedin"></span></a>
+        </p>
+      </div>
+      <div class="col-md-7 ms-auto">
+        <div class="row site-section pt-0">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3>Navigation</h3>
+            <ul class="list-unstyled">
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/works">Works</a></li>
+              <li><a href="/home"></a>Home</li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3>Shop</h3>
+            <ul class="list-unstyled">
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/ethapp">Ethereum Dapp</a></li>
+              <li><a href="/home"></a>Home</li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3>Downloads</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Get from the Play Store</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+      <div class="col-md-7">
+        <p class="copyright">&copy; Copyright Ravinthiran Partheepan. All Rights Reserved</p>
+        <div class="credits">
+
+          Developed by <a href="/">Ravinthiran Partheepan</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
