@@ -496,6 +496,10 @@ app.get("/db/azog", function(req, res){
   res.sendFile(__dirname + '/public/firedb.html');
 })
 
+app.get("/aidetection", function(req, res){
+  res.render('aidetection')
+})
+
 
 
 app.listen(process.env.PORT || 3000, function(){
