@@ -500,6 +500,10 @@ app.get("/aidetection", function(req, res){
   res.render('aidetection')
 })
 
+app.get("/azog/metaverse", function(req, res){
+  res.render('metaverse')
+})
+
 
 
 app.listen(process.env.PORT || 3000, function(){
