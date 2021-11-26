@@ -504,6 +504,43 @@ app.get("/azog/metaverse", function(req, res){
   res.render('metaverse')
 })
 
+app.get("/azog/metaverse/contact", function(req, res){
+  res.render('azogcontact')
+})
+
+app.post('/azog/metaverse/contact', function(req, res) {
+  const linkz = "https://ravinthiranpartheepan.com/mixedrealityfilm?id=" +ids
+  const vrz = "https://ravinthiranpartheepan.com/vrapp?id=" +ids
+  const namezz = req.body.namez;
+  const emailzz = req.body.emailz;
+  const messsagezz = req.body.messagez;
+  let transporters = nodemailer.createTransport({
+    service: "Gmail",
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'ravinthiran@ofoundation.nl',
+      pass: 'Nodedoodle@doodle1407'
+    }
+  });
+  let mailOptions = {
+    from: '"Ravinthiran Partheepan" <ravinthiran1407@gmail.com>',
+    to: emailzz,
+    subject: "Thank you for contacting me - Ravinthiran Partheepan@Azog/Metaverse",
+    html: "<p>Dear " + namezz + " </p><p>Thank you again for contacting me! I will respond to you message as soon as possible. In the mean time checkout my mixedreality based metaverse app:"+ linkz +" </p><p> Oh! I have a gift for you. Here's my VR App session for you "+ vrz +"</p>"
+
+
+  };
+
+  transporters.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message  sent: ', info.messageId, info.response);
+    res.redirect('/azog/metaverse');
+  });
+  console.log(emailzz)
+});
 
 
 app.listen(process.env.PORT || 3000, function(){
