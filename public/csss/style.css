@@ -607,7 +607,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100vh;
     z-index: 999999999;
     overflow: visible;
-    background: #000000 url(../images/preloader.gif) no-repeat center center;
+    background: #000000 url(../images/icon.png) no-repeat center center;
     background-size: 400px 400px;
 }
   #header-section.header-fixed {
