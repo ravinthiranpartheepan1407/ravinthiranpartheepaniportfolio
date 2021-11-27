@@ -52,15 +52,17 @@ const userSchema = {
 }
 
 const sendEmail = (email, uniqueString) => {
-  var Transport = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: "ravinthiran@ofoundation.nl",
-      pass: "Nodedoodle@doodle1407"
+  let Transport = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com",
+    secureConnection: false,
+    port: 587,
+    tls: {
+       ciphers:'SSLv3'
     },
-    from: 'ravinthiran@ofoundation.nl'
+    auth: {
+      user: 'azogpanel@outlook.com',
+      pass: 'Azogorc@505'
+    }
   });
 
   var mailOptions;
@@ -196,16 +198,19 @@ app.post('/contact', function(req, res) {
   const subject = req.body.subject;
   const messsage = req.body.message;
   let transporters = nodemailer.createTransport({
-    service: "Gmail",
-    port: 465,
-    secure: true,
-    auth: {
-      user: 'ravinthiran@ofoundation.nl',
-      pass: 'Nodedoodle@doodle1407'
-    }
+      host: "smtp-mail.outlook.com",
+      secureConnection: false,
+      port: 587,
+      tls: {
+         ciphers:'SSLv3'
+      },
+      auth: {
+        user: 'azogpanel@outlook.com',
+        pass: 'Azogorc@505'
+      }
   });
   let mailOptions = {
-    from: '"Ravinthiran Partheepan" <ravinthiran1407@gmail.com>',
+    from: '"Ravinthiran Partheepan" <azogpanel@outlook.com>',
     to: email,
     subject: "Thank you for contacting me - Ravinthiran Partheepan",
     html: "<p>Dear " + name + " </p><p>Thank you again for contacting me! I will respond to you message as soon as possible. In the mean time checkout my ethereum shop:"+ link +" </p><p> Oh! I have a gift for you. Here's my VR App session for you "+ vrapp +"</p>"
@@ -515,16 +520,19 @@ app.post('/azog/metaverse/contact', function(req, res) {
   const emailzz = req.body.emailz;
   const messsagezz = req.body.messagez;
   let transporters = nodemailer.createTransport({
-    service: "Gmail",
-    port: 465,
-    secure: true,
+    host: "smtp-mail.outlook.com",
+    secureConnection: false,
+    port: 587,
+    tls: {
+       ciphers:'SSLv3'
+    },
     auth: {
-      user: 'ravinthiran@ofoundation.nl',
-      pass: 'Nodedoodle@doodle1407'
+      user: 'azogpanel@outlook.com',
+      pass: 'Azogorc@505'
     }
   });
   let mailOptions = {
-    from: '"Ravinthiran Partheepan" <ravinthiran1407@gmail.com>',
+    from: '"Ravinthiran Partheepan" <azogpanel@outlook.com>',
     to: emailzz,
     subject: "Thank you for contacting me - Ravinthiran Partheepan@Azog/Metaverse",
     html: "<p>Dear " + namezz + " </p><p>Thank you again for contacting me! I will respond to you message as soon as possible. In the mean time checkout my mixedreality based metaverse app:"+ linkz +" </p><p> Oh! I have a gift for you. Here's my VR App session for you "+ vrz +"</p>"
