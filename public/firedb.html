@@ -89,10 +89,7 @@
 	</div>
 	<div id="form-container" class="vh-100 d-flex flex-column justify-content-center container-sm">
 		<h1 style="color: white;" id="heading" class="font-weight-bolder text-center mb-5">Sign Up</h1>
-		<div class="text-center">
-			<p style="color: white">Sign in with :</p>
-			<button id="google-auth" class="btn btn-primary">Google</button>
-		</div>
+
 		<form id="form-el" class="form-signin text-center">
 			<div style="max-width: 500px;" class="container-sm">
 				<div class="form-group m-4">
@@ -114,13 +111,20 @@
 						id="passwordInput" />
 				</div>
 			</div>
-			<button style="color: white;" id="form-submit-btn" class="font-weight-bold btn btn-primary btn-lg">Sign Up</button><br />
+      <div class="text-center">
+  			
+        <button style="color: white;" id="form-submit-btn" class="font-weight-bold btn btn-primary">Sign Up</button>
+
+
+
+  		</div>
 			<button  id="forgot-pass-btn" class="d-none btn btn-primary mt-3">Forgot password</button>
 		</form>
 		<p class="text-center mt-3">
-			<span style="color: black; font-weight: bolder;" id="switch-note">Already have an account ?</span>
-			<button style="color: black; font-weight: bolder;" aria-data="sign-in" id="swap-sign-in-up" class="btn btn-link">Sign In</button>
+			<span style="color: white; font-weight: bolder;" id="switch-note">Already have an account ?</span>
 		</p>
+    <button style="color: white; font-weight: bolder;" aria-data="sign-in" id="swap-sign-in-up" class="btn btn-primary btn-link">Sign In</button>
+
 	</div>
 	<div class="modal fade" id="error-modal" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -200,7 +204,7 @@
   const signInUser = (email, pass) => {
   	auth.signInWithEmailAndPassword(email, pass)
   	.then(res => {
-
+        window.location.href = '/db/azog/events'
   		console.log("Signed In")
 
   	})
@@ -253,7 +257,7 @@
   const signInUserWithGoogle = () => {
   	auth.signInWithPopup(provider).then(res => {
   		console.log(res)
-
+        window.location.href = '/db/azog/events'
   		user = res.user
   	}).catch(err => {
   		errorHandler(err)
@@ -393,63 +397,6 @@
 </script>
 
 
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4 mb-md-0">
-        <h3>About Ravinthiran Partheepan</h3>
-        <p style="text-align: justify !important;">I am an Artificial Intelligence Researcher, Blockhain ETH Smartcontracts And Dapps Developer, Full Stack Developer, Comic Book Writer and VFX Film Maker</p>
-        <p class="social">
-          <a href="#"><span class="bi bi-twitter"></span></a>
-          <a href="#"><span class="bi bi-facebook"></span></a>
-          <a href="#"><span class="bi bi-instagram"></span></a>
-          <a href="https://www.linkedin.com/in/ravinthiran-partheepan-8a5100131"><span class="bi bi-linkedin"></span></a>
-        </p>
-      </div>
-      <div class="col-md-7 ms-auto">
-        <div class="row site-section pt-0">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3>Navigation</h3>
-            <ul class="list-unstyled">
-              <li><a href="/shop">Shop</a></li>
-              <li><a href="/works">Works</a></li>
-              <li><a href="/home"></a>Home</li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3>Shop</h3>
-            <ul class="list-unstyled">
-              <li><a href="/shop">Shop</a></li>
-              <li><a href="/ethapp">Ethereum Dapp</a></li>
-              <li><a href="/home"></a>Home</li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3>Downloads</h3>
-            <ul class="list-unstyled">
-              <li><a href="#">Get from the Play Store</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row justify-content-center text-center">
-      <div class="col-md-7">
-        <p class="copyright">&copy; Copyright Ravinthiran Partheepan. All Rights Reserved</p>
-        <div class="credits">
-
-          Developed by <a href="/">Ravinthiran Partheepan</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</footer>
 
 </body>
 </html>

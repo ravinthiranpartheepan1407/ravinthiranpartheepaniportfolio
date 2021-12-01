@@ -513,6 +513,10 @@ app.get("/azog/metaverse/contact", function(req, res){
   res.render('azogcontact')
 })
 
+app.get("/db/azog/events", function(req, res){
+  res.render('events')
+})
+
 app.post('/azog/metaverse/contact', function(req, res) {
   const linkz = "https://ravinthiranpartheepan.com/mixedrealityfilm?id=" +ids
   const vrz = "https://ravinthiranpartheepan.com/vrapp?id=" +ids
